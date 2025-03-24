@@ -1,0 +1,560 @@
+.app {
+  font-family: sans-serif;
+  text-align: center;
+}
+#root {
+  min-height: 100vh;
+  /*  background-image: url("/bacground.jpg"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Open Sans", Arial, sans-serif;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+}
+
+.leaflet-container {
+  width: 85vw;
+  border-radius: 15px;
+  height: 800px;
+  border: 2px solid #fff700;
+}
+
+.containerLanding {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.containerElement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+.ulList {
+  width: 200px;
+}
+.avatarName {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+
+.titleLogin {
+  font-family: "Montserrat", Helvetica, Arial, Lucida, sans-serif;
+  font-size: 50px;
+  text-align: center;
+  width: 100%;
+}
+
+/* sizing of map container */
+/* .leaflet-container {
+  width: 95vw;
+  border-radius: 15px;
+  height: 800px;
+} */
+
+.titleCarte {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0px;
+  max-width: 600px;
+  margin-top: 90px;
+  margin-bottom: 30px;
+  padding: 20px;
+}
+.myBody {
+  max-width: 100vw;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-image: url("./bacground.jpg"); */
+}
+
+.myBodySecond {
+  max-width: 100vw;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+.containerHeaderFirst {
+  position: absolute;
+  width: 100%;
+  top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerHeader {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  gap: 15px;
+  font-size: 13px;
+}
+.blanco {
+  font-size: 13px;
+}
+
+.containerFooter {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* No repeating */
+}
+
+.footerDescription {
+  max-width: 640px;
+  border: 1px solid #00000023;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: transparent;
+  gap: 25px;
+}
+.footerTitle {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footerElement {
+  width: 280px;
+  display: flex;
+
+  gap: 10px;
+}
+
+.footerImage {
+  object-fit: cover;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.textDescription {
+  align-self: flex-start;
+}
+
+.aba {
+  margin-top: 40px;
+}
+.popupContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.topText {
+  text-align: center;
+  font-size: 10px;
+}
+
+.bodyPopup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.popupImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.popupDescription {
+  font-size: 11px;
+  line-height: 14px;
+}
+
+.popupContact {
+  align-self: flex-end;
+  text-decoration: none;
+  color: rgb(11, 173, 248);
+}
+
+.bodyDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+.popupName {
+  display: block;
+}
+.popupName1 {
+  display: block;
+  max-width: 250px;
+  text-wrap: nowrap;
+  overflow: clip;
+}
+
+.coucou {
+  font-size: 16px;
+}
+.imageCarte {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.imgClass {
+  margin: auto;
+  width: 240px;
+  height: 75px;
+  object-fit: cover;
+  background-color: transparent;
+}
+.selectCountry {
+  background-color: transparent;
+  color: white;
+}
+.selectCountry:focus {
+  outline: none;
+}
+
+@media (min-width: 640px) {
+  .containerHeader {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    gap: 65px;
+  }
+  .footerDescription {
+    max-width: 650px;
+    border: 1px solid #00000023;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+    /*  background-color: aliceblue; */
+    gap: 25px;
+  }
+
+  .leaflet-container {
+    width: 95vw;
+    border-radius: 15px;
+    height: 800px;
+  }
+  .blanco {
+    font-size: 15px;
+  }
+
+  .titleCarte {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0px;
+    max-width: 1000px;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    padding: 30px;
+  }
+}
+
+@media (min-width: 940px) {
+  .footerDescription {
+    max-width: 950px;
+    border: 1px solid #00000023;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+    /* background-color: aliceblue; */
+    gap: 25px;
+  }
+}
+
+@media (min-width: 1250px) {
+  .footerDescription {
+    max-width: 1250px;
+    border: 1px solid #00000023;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+    /*  background-color: aliceblue; */
+    gap: 25px;
+  }
+}
+
+.isbuttonlogin {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 0px;
+}
+.isconnexion {
+  padding: 10px;
+  border: none;
+  background-color: #fff700;
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.isconnexion2 {
+  padding: 10px;
+  border: none;
+  background-color: #bd10e0;
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.submitButton {
+  padding: 10px;
+  border: none;
+  background-color: #fff700;
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: center;
+}
+.isdeconnexion {
+  padding: 10px;
+  border: none;
+  background-color: #bd10e0;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.isretour,
+.isconnexionmesmarquers {
+  padding: 10px;
+  border: none;
+  background-color: #fff700;
+  color: black;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+.isdeconnexionadmin,
+.isconnexion2mm {
+  padding: 10px;
+  border: none;
+  background-color: #bd10e0;
+  width: 100%;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.isbuttonconnected {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-right: 0px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.loginIsabFirst,
+.userCardFirst,
+.cardAdmin {
+  position: fixed;
+  width: 100vw;
+  min-height: 100vh;
+  z-index: 10000;
+  background-color: rgba(0, 0, 0, 0.404);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.adminContainer {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  background-color: white;
+  padding: 10px;
+  gap: 15px;
+  border: 2px solid #bd10e0;
+}
+
+.loginSecond {
+  width: 100%;
+  height: 300px;
+  background-color: white;
+  border: 2px solid #fff700;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.formIs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.inputIs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.buttonPopup {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: center;
+}
+
+/*pagination table css*/
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 18px;
+  text-align: left;
+}
+
+.custom-table th,
+.custom-table td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+}
+
+.custom-table th {
+  background-color: #f4f4f4;
+  color: #333;
+  cursor: pointer;
+}
+
+.custom-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  background-color: #3772f1;
+  background-color: #f06b53;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  color: white;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+@media (min-width: 640px) {
+  .loginSecond {
+    width: 400px;
+    height: 300px;
+    padding: 20px 10px;
+  }
+
+  .adminContainer {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    padding: 10px;
+    gap: 15px;
+    border: 2px solid #bd10e0;
+  }
+}
+
+.ContainerCardFirst {
+  background-color: white;
+  max-width: 800px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+table {
+  border: 1px solid lightgray;
+}
+
+tbody {
+  border-bottom: 1px solid lightgray;
+}
+
+th {
+  border-bottom: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+  padding: 2px 4px;
+}
+
+tfoot {
+  color: gray;
+}
+
+tfoot th {
+  font-weight: normal;
+}
+
+button:disabled {
+  opacity: 0.5;
+}
+
+.loading {
+  position: fixed;
+  z-index: 20000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  min-height: 100vh;
+}
