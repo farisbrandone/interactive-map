@@ -14,8 +14,8 @@ function AllbuttonHeader({
   handleConnexion,
   setDisplayMarquer,
   setOpenCardAdmin,
-  userState,
   setAllMarqueur,
+  userState,
   setLoading,
 }) {
   const getAllMarquer = async () => {
@@ -26,9 +26,11 @@ function AllbuttonHeader({
         setDisplayMarquer([...allMarquers]);
         setAllMarqueur(true);
         setLoading(false);
+        return;
       }
       setLoading(false);
     } catch (error) {
+      console.log(error);
       setLoading(false);
       alert(
         "Une erreur est survenue pendant le chargement des données vérifie ta connexion internet"

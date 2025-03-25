@@ -369,6 +369,7 @@ function App() {
           setOpenCardAdmin={setOpenCardAdmin}
           userState={userState}
           setLoading={setLoading}
+          setAllMarqueur={setAllMarqueur}
         />
 
         <MapContainer
