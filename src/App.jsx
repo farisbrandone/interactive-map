@@ -20,6 +20,7 @@ import { addDoc, collection } from "firebase/firestore";
 import Login from "./components/Login";
 import AllbuttonHeader from "./components/AllbuttonHeader";
 import CardAdmin from "./components/CardAdmin";
+import "leaflet-geosearch/dist/geosearch.css";
 
 import {
   deleteMarquerWithId,
@@ -30,6 +31,7 @@ import {
 import { videoTransformer } from "./sign/verifyMotsDePasse";
 import ManageUserCard from "./components/ManageUserCard";
 import Load from "./components/Load";
+import { MyImg } from "./sign/component/ImageZoom";
 
 function App() {
   const currentUser = auth.currentUser;
@@ -123,6 +125,7 @@ function App() {
         };
 
         setLoading(true);
+
         const result = await updateMarquerWithId(autho.id, data);
 
         alert("Mise à jour faite !");
@@ -293,9 +296,10 @@ function App() {
     document.head.appendChild(style);
     const affectStyle = async () => {
       const style2 = await import("leaflet-geosearch/dist/geosearch.css");
-      style.innerHTML = style.innerHTML + style2;
+
+      style.innerHTML = style.innerHTML + new String(style2);
     };
-    affectStyle();
+    //affectStyle();
     // Cleanup the style element when the component unmounts
     return () => {
       document.head.removeChild(style);
@@ -305,7 +309,7 @@ function App() {
   useEffect(() => {
     const getAllMarkers = async () => {
       try {
-        const allMarquers = await getMarquersWithUidInApi();
+        const allMarquers = await getMarquersAllInApi();
         if (allMarquers) {
           setDisplayMarquer([...allMarquers]);
 
@@ -316,7 +320,7 @@ function App() {
       }
     };
     getAllMarkers();
-  }, []);
+  }, [displayLogin]);
   if (loadingFail) {
     return (
       <div className="failError">
@@ -375,6 +379,7 @@ function App() {
         <MapContainer
           center={[46.6034, 1.8883]}
           zoom={2}
+          minZoom={2}
           ref={myfunction}
           doubleClickZoom
         >
@@ -411,11 +416,14 @@ function App() {
                               </span>
                             </div>
                             {value.photoUrl && (
-                              <img
-                                src={value.photoUrl}
-                                alt=""
-                                className="imageCarte"
-                              />
+                              <>
+                                <MyImg url={value.photoUrl} />
+                                {/*  <img
+                                  src={value.photoUrl}
+                                  alt=""
+                                  className="imageCarte"
+                                /> */}
+                              </>
                             )}
 
                             {value.videoUrl &&
@@ -435,14 +443,17 @@ function App() {
                           <div className="buttonPopup">
                             <button
                               onClick={() => deleteMarquers(value)}
-                              style={{ backgroundColor: "red", color: "white" }}
+                              style={{
+                                backgroundColor: "black",
+                                color: "white",
+                              }}
                             >
                               X
                             </button>
                             <button
                               onClick={() => modifyMarquers(value)}
                               style={{
-                                backgroundColor: "#bd10e0",
+                                backgroundColor: "#E6C068",
                                 color: "white",
                               }}
                             >

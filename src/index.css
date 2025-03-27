@@ -502,6 +502,12 @@ input {
     height: 300px;
     padding: 20px 10px;
   }
+  .imageCarte {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
 
   .adminContainer {
     width: 300px;

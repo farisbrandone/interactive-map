@@ -30,7 +30,6 @@ function AllbuttonHeader({
       }
       setLoading(false);
     } catch (error) {
-      console.log(error);
       setLoading(false);
       alert(
         "Une erreur est survenue pendant le chargement des données vérifie ta connexion internet"

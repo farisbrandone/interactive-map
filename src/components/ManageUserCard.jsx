@@ -365,7 +365,7 @@ function ManageUserCard({
           Affichage de {table.getRowModel().rows.length.toLocaleString()}{" "}
           rangées sur {table.getRowCount().toLocaleString()}
         </div>
-        <pre>{JSON.stringify(table.getState().pagination, null, 2)}</pre>
+        {/*  <pre>{JSON.stringify(table.getState().pagination, null, 2)}</pre> */}
 
         {/* Pagination Controls */}
         {/*  <div style={{ marginTop: "10px" }}>

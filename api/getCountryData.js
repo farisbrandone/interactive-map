@@ -84,9 +84,10 @@ export async function getMarquersAllInApi() {
 
       return markers;
     } else {
-      throw new Error("User doesn't exist");
+      return markers;
     }
   } catch (error) {
+    console.log(error);
     throw new Error("User doesn't exist");
   }
 }
@@ -171,9 +172,12 @@ export async function getMarquerWithId(id) {
 export async function updateMarquerWithId(id, data) {
   const marquerRef = doc(citiesRef, id);
   try {
+    console.log("boubou");
     await updateDoc(marquerRef, { ...data });
+
     return { authoriser: true };
   } catch (error) {
+    console.log({ error });
     throw new Error("Une erreur est survenue, vérifier votre connexion");
   }
 }

@@ -108,7 +108,7 @@ export function Geolocalisation({ user }) {
 export function FocusView() {
   const parentMap = useMap();
   function SetViewOnClick(coords) {
-    parentMap.setView(coords, parentMap.getZoom());
+    parentMap.setView(coords, 4 /* parentMap.getZoom() */);
 
     return null;
   }
