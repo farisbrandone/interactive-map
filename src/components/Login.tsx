@@ -38,8 +38,8 @@ function Login({
       );
       const adminUid = await response.json();
 
-      if (adminUid.value) {
-        await createUser(email, password, auth);
+      if (adminUid.value && adminUid.role === "admin") {
+        //await createUser(email, password, auth);
         const usercred = await signInWithEmailAndPassword(
           auth,
           email,
@@ -63,27 +63,45 @@ function Login({
         return;
       }
 
-      await createUser(email, password, auth);
-      const usercred = await signInWithEmailAndPassword(auth, email, password);
-      setDisplayAdmin(false);
-      setDisplayLogin(false);
-      setDisplayConnexionButton(false);
-      const data = {
-        email: usercred.user.email,
-        uid: usercred.user.uid,
-        role: "user",
-        status: "activate",
-      };
+      if (adminUid.value && adminUid.role === "user") {
+        //await createUser(email, password, auth);
+        const usercred = await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+        setDisplayAdmin(false);
+        setDisplayLogin(false);
+        setDisplayConnexionButton(false);
+        const data = {
+          email: usercred.user.email,
+          uid: usercred.user.uid,
+          role: "user",
+          status: "activate",
+        };
 
-      const userData = await getUsersWithUidInApi(data);
+        const userData = await getUsersWithUidInApi(data);
 
-      setUserState({ ...userData });
-      setStartLoading(false);
-      setLoading(false);
+        setUserState({ ...userData });
+        setStartLoading(false);
+        setLoading(false);
+        return;
+      } else {
+        setStartLoading(false);
+        setLoading(false);
+        setDisplayLogin(false);
+        alert(
+          "Erreur de connexion par email. Si tu ne l'as pas encore fait, Inscrit toi sur le réseau social ✨✨✨ Un Truc de JÉSUS ! ✨✨✨ pour accéder à la carte"
+        );
+        return;
+      }
     } catch (error) {
       setStartLoading(false);
       setLoading(false);
-      alert("Erreur de connexion par email : " + error.message);
+      setDisplayLogin(false);
+      alert(
+        "Erreur de connexion par email. Si tu ne l'as pas encore fait, Inscrit toi sur le réseau social ✨✨✨ Un Truc de JÉSUS ! ✨✨✨ pour accéder à la carte"
+      );
     }
   };
 

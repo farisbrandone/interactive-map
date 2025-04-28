@@ -75,14 +75,14 @@ function CardAdmin({
           className="isconnexion2mm"
           onClick={getMyMarquer}
         >
-          Mes marqueurs
+          Mes Coeurs
         </button>
         <button
           disabled={desableTous}
           className="isconnexionmesmarquers"
           onClick={getAllMarquer}
         >
-          Tous les marqueurs
+          Tous les Coeurs
         </button>
         <button className="isdeconnexionadmin" onClick={handleOpenManageUser}>
           Gérer les utilisateurs

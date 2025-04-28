@@ -32,6 +32,7 @@ import { videoTransformer } from "./sign/verifyMotsDePasse";
 import ManageUserCard from "./components/ManageUserCard";
 import Load from "./components/Load";
 import { MyImg } from "./sign/component/ImageZoom";
+import DeleteComponent from "./components/DeleteComponent";
 
 function App() {
   const currentUser = auth.currentUser;
@@ -49,6 +50,8 @@ function App() {
   const [openCardAdmin, setOpenCardAdmin] = useState(false);
   const [openManageUser, setOpenManageUser] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [openDelete, setOpenDelete] = useState(false);
+  const [valueTodelete, setValueToDelete] = useState(null);
 
   const citiesRef = collection(db, "markers");
 
@@ -163,26 +166,34 @@ function App() {
         setLoading(true);
         await deleteMarquerWithId(autho.id);
         if (allMarqueur) {
-          const allMarquers = await getMarquersAllInApi();
-          if (allMarquers) {
-            setDisplayMarquer([...allMarquers]);
+          console.log("bobob");
+          const allMarquerss = await getMarquersAllInApi();
+          if (allMarquerss) {
+            setDisplayMarquer([...allMarquerss]);
             setLoading(false);
+            setOpenDelete(false);
             return;
           }
+          return;
         }
         const allMarquers = await getMarquersWithUidInApi();
+        console.log("zouzou");
         if (allMarquers) {
+          console.log("soso");
           setDisplayMarquer([...allMarquers]);
           setLoading(false);
+          setOpenDelete(false);
           return;
         }
       } else {
         setLoading(false);
         alert("Tu n' as pas accès à ce marqueur");
+        setOpenDelete(false);
         return;
       }
     } catch (error) {
       setLoading(false);
+      setOpenDelete(false);
       alert(
         "Oups, un problème est survenu pendant la mise à jour: " + error.message
       );
@@ -276,6 +287,7 @@ function App() {
   border-radius: 15px;
   height: 800px;
 }
+  
   /*.leaflet-control-geocoder-icon {
         background-color: #f8e71c; /* Couleur de fond du bouton */
         border: 2px solid #e0c92b; /* Bordure du bouton */
@@ -311,8 +323,9 @@ function App() {
       try {
         const allMarquers = await getMarquersAllInApi();
         if (allMarquers) {
+          console.log(allMarquers);
           setDisplayMarquer([...allMarquers]);
-
+          setAllMarqueur(true);
           return;
         }
       } catch (error) {
@@ -332,6 +345,13 @@ function App() {
   return (
     <div className="myBody">
       {loading && <Load />}
+      {openDelete && (
+        <DeleteComponent
+          deleteMarquers={deleteMarquers}
+          valueTodelete={valueTodelete}
+          setOpenDelete={setOpenDelete}
+        />
+      )}
       {openManageUser && userState && userState.role === "admin" && (
         <ManageUserCard
           setOpenManageUser={setOpenManageUser}
@@ -442,7 +462,10 @@ function App() {
                           </div>
                           <div className="buttonPopup">
                             <button
-                              onClick={() => deleteMarquers(value)}
+                              onClick={() => {
+                                setValueToDelete(value);
+                                setOpenDelete(true);
+                              }}
                               style={{
                                 backgroundColor: "black",
                                 color: "white",

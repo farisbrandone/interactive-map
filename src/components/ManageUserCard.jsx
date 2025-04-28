@@ -93,25 +93,6 @@ function ManageUserCard({
     }
   };
 
-  /*  const handleSearch = (value) => {
-    setSearchInput(value);
-    const result = totalUser.filter((item) =>
-      Object.values(item).some((val) =>
-        String(val).toLowerCase().includes(value.toLowerCase())
-      )
-    );
-    setFilteredData(result);
-  }; */
-
-  /* const columns = React.useMemo(
-    () => [
-      { Header: "Email", accessor: "email" },
-      { Header: "Role", accessor: "role" },
-      { Header: "Status", accessor: "status" },
-    ],
-    []
-  ); */
-
   const columns = React.useMemo(
     () => [
       {
@@ -136,7 +117,7 @@ function ManageUserCard({
       },
       {
         accessorKey: "uid",
-        header: () => <span>marqueurs</span>,
+        header: () => <span>Coeurs</span>,
         cell: (info) => {
           const uid = info.getValue();
 

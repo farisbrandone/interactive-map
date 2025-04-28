@@ -80,10 +80,10 @@ function AllbuttonHeader({
       ) : userState?.role === "user" && !displayConnexionButton ? (
         <div className="isbuttonconnected">
           <button className="isconnexion" onClick={getAllMarquer}>
-            Tous les marqueurs
+            Tous les Coeurs
           </button>
           <button className="isconnexion" onClick={getMyMarquer}>
-            Mes marqueurs
+            Mes Coeurs
           </button>
           <button className="isdeconnexion" onClick={handleLogout}>
             Deconnexion
